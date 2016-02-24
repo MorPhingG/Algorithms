@@ -1,13 +1,33 @@
+import java.util.Random;
 
 public class InsertionSort {
-	int[] values;
+	static int N = 100;
+	int[] values = new int[N];
 
 	public static void main(String[] args) {
-		int[] a = {4,6,7,5,2,9,0,3,1,8};
 		InsertionSort insert = new InsertionSort();
-		insert.values = a;
+		insert.random(N);
 		insert.sort();
 		insert.print();
+	}
+	
+	public void random(int n){
+		Random random = new Random();
+        for(int i = 0; i < n; i++){
+            int number = random.nextInt(n) + 1;
+            for(int j = 0; j <= i; j++){
+            	if(number != values[j]){
+            		values[i] = number;
+            	}
+            }
+        }
+        for(int i = 0;i < values.length;i++){
+            System.out.print(values[i] + " ");
+            
+            if(( i + 1 ) % 10 == 0){
+                System.out.println("\n");
+            }
+        }
 	}
 	
 	public void sort(){

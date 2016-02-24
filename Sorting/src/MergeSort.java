@@ -1,15 +1,35 @@
+import java.util.Random;
 
 public class MergeSort {
-	int[] values;
+	static int N = 100;
+    int[] values = new int[N];
 
 	public static void main(String[] args) {
-		int[] a = {4,6,8,2,5,3,1,9,7};
-		int r = a.length-1;
+		int r = N-1;
 		int p = 0;
 		MergeSort mergeSort = new MergeSort();
-		mergeSort.values = a;
-		mergeSort.sort(p, r);
-		mergeSort.print();
+		mergeSort.random(N);
+        mergeSort.sort(p, r);
+        mergeSort.print();
+	}
+	
+	public void random(int n){
+		Random random = new Random();
+        for(int i = 0; i < n; i++){
+            int number = random.nextInt(n) + 1;
+            for(int j = 0; j <= i; j++){
+            	if(number != values[j]){
+            		values[i] = number;
+            	}
+            }
+        }
+        for(int i = 0;i < values.length;i++){
+            System.out.print(values[i] + " ");
+            
+            if(( i + 1 ) % 10 == 0){
+                System.out.println("\n");
+            }
+        }
 	}
 	
 	public void sort(int p ,int r){
