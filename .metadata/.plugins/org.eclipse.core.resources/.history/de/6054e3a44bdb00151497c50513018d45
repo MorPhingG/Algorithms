@@ -1,14 +1,16 @@
 import java.util.Random;
 
-public class InsertionSort {
+public class QuickSort {
 	static int N = 100;
-	int[] values = new int[N];
+    int[] values = new int[N];
 
 	public static void main(String[] args) {
-		InsertionSort insert = new InsertionSort();
-		insert.random(N);
-		insert.sort();
-		insert.print();
+		int r = N-1;
+		int p = 0;
+		QuickSort quickSort = new QuickSort();
+		quickSort.random(N);
+		quickSort.sort(p, r);
+		quickSort.print();
 	}
 	
 	public void random(int n){
@@ -29,16 +31,31 @@ public class InsertionSort {
         }
 	}
 	
-	public void sort(){
-		for(int i = 1; i < values.length; i++){
-			int key = values[i];
-			int j = i-1;
-			while(j >= 0 && values[j] > key){
-				values[j+1] = values[j];
-				j--;
-			}
-			values[j+1] = key; 
+	public void sort(int p ,int r){
+		if(p<r){
+			q = partition(p,r);
+			sort(p,q);
+			sort(q+1,r);
 		}
+	}
+	
+	public int partition(int p, int r){
+		int x = values[r];
+		int i = p-1;
+		for(int j = p; j < r; j++){
+			if(values[j] <= x){
+				i++;
+				swap(values[i], values[j]);
+			}
+		}
+		swap(values[i+1], values[r]);
+		return(i+1);
+	}
+	
+	public void swap(int i, int j){
+		int temp = i;
+		i = j;
+		j = temp;
 	}
 	
 	public void print(){
@@ -47,5 +64,4 @@ public class InsertionSort {
 		}
 		System.out.println();
 	}
-
 }
