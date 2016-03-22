@@ -1,0 +1,12 @@
+
+*.gen
+
+*.tis
+
+*.nrm
+
+*.class
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_mars_/segments_4
+
+*.tis

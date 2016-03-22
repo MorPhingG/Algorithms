@@ -20,6 +20,7 @@ public class HeapSort {
 			swap(0, i);
 			heapSize--;
 			buildMaxHeap(heapSize);
+			print();
 		}
 	}
 	

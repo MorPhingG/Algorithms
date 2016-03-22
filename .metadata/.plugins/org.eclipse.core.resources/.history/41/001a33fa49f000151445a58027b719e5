@@ -16,10 +16,14 @@ public class HeapSort {
 	
 	public void sort(int p ,int r){
 		buildMaxHeap(r);
+		print();
 		for(int i = r; i > 0; i--){
 			swap(0, i);
 			heapSize--;
+//			maxHeapify(heapSize, 1);
 			buildMaxHeap(heapSize);
+			System.out.print(heapSize+" "+"build:");
+			print();
 		}
 	}
 	

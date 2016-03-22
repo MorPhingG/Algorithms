@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class HeapSort {
-	static int N = 100;
+	static int N = 10;
     int[] values = new int[N];
     static int heapSize = N-1;
 
@@ -16,18 +16,22 @@ public class HeapSort {
 	
 	public void sort(int p ,int r){
 		buildMaxHeap(r);
+		print();
 		for(int i = r; i > 0; i--){
 			swap(0, i);
 			heapSize--;
+//			maxHeapify(heapSize, 1);
 			buildMaxHeap(heapSize);
+			print();
+			System.out.print("build");
 		}
 	}
 	
 	public void maxHeapify(int r, int i){
-		int left = 2*(i+1)-1;
-		int right = 2*(i+1);
+		int left = 2*i;
+		int right = 2*i+1;
 		int largest;
-		if(left <= heapSize && values[left] > values[i]){
+		if(left <= heapSize && values[left] > values[right]){
 			largest = left;
 		}
 		else
