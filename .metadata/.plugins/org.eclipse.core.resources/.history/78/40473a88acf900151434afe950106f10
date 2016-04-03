@@ -1,0 +1,30 @@
+import java.lang.*;
+
+public class CutRod {
+	
+	public static void main(String[] args) {
+		int price[] = {1, 5, 8, 9, 10, 17, 20, 24, 30}; 
+		int n = 5;
+		CutRod cutRod = new CutRod();
+		cutRod.cut(price, n);
+
+	}
+	
+	public void cut(int[] p, int n){
+		int[] r = new int[n];
+		r[0] = 1;
+		int q = -10;
+		if(n == 0)
+			System.out.println(0);
+		for (int i = 0; i < n ; i++){
+			q = -10;
+			for(int j = 0; j < 10; j++){
+				q = Math.max(q, p[j]+r[i-j]);
+			}
+			r[i] = q;
+		}		
+		System.out.println(q);
+				
+	}
+
+}

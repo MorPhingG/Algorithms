@@ -1,0 +1,28 @@
+import java.lang.*;
+
+public class CutRod {
+	
+	public static void main(String[] args) {
+		int price[] = {1, 5, 8, 9, 10, 17, 17, 20, 24, 30}; 
+		int n = 15;
+		cut(price, n);
+
+	}
+	
+	public static int cut(int[] p, int n){
+		int[] r = new int[n];
+		r[0] = 0;
+		if(n == 0)
+			return 0;
+		for (int i = 0; i < n ; i++){
+			int q = -10;
+			for(int j = 0; j < i; j++){
+				q = Math.max(q, p[j]+r[i-j]);
+			}
+			
+		}		
+		return q;
+				
+	}
+
+}

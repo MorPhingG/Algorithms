@@ -1,0 +1,10 @@
+
+public class CutRod {
+
+	int price[] = {1, 5, 8, 9, 10, 17, 17, 20, 24, 30}; 
+	public static void main(String[] args) {
+		
+
+	}
+
+}
